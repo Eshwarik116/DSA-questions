@@ -56,46 +56,8 @@ Java is currently my main language for DSA and LeetCode practice, so the impleme
 
 ---
 
-# 🧠 DSA Topics
 
-The repository will gradually cover major DSA concepts and problem-solving patterns:
 
-- Arrays
-- Strings
-- Hashing
-- Two Pointers
-- Sliding Window
-- Stack & Queue
-- Linked List
-- Binary Search
-- Recursion & Backtracking
-- Trees
-- Heap / Priority Queue
-- Graphs
-- Greedy
-- Dynamic Programming
-
----
-
-# 📊 Complexity Cheat Sheet
-
-A quick reference for common complexities:
-
-| Data Structure / Operation | Average Complexity |
-|---|---:|
-| Array Access | O(1) |
-| HashMap Lookup | O(1) |
-| HashSet Lookup | O(1) |
-| Stack Push / Pop | O(1) |
-| Queue Push / Pop | O(1) |
-| Heap Insert | O(log n) |
-| Heap Remove | O(log n) |
-| Binary Search | O(log n) |
-| Sorting | O(n log n) |
-
-> Actual complexity can depend on the implementation and operation being performed.
-
----
 
 # 🛠️ Tools & Platforms
 
@@ -123,21 +85,6 @@ The long-term objective is **problem-solving ability**, not just submission coun
 
 ---
 
-# 🚀 Long-Term Goal
-
-This repository will continue growing alongside my DSA journey.
-
-Eventually, it should serve as a personal reference for:
-
-- 📚 DSA revision
-- 💼 Technical interview preparation
-- 🧠 Pattern recognition
-- 📝 Coding practice
-- 🔍 Revisiting difficult problems
-- 📈 Tracking learning progress
-- 🎯 Placement preparation
-
-The goal is to build a **well-organized personal DSA knowledge base**, rather than simply maintaining a list of solved questions.
 
 ---
 
