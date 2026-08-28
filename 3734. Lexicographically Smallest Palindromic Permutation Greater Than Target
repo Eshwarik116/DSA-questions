@@ -1,0 +1,126 @@
+class Solution {
+    public String lexPalindromicPermutation(String s, String target) {
+        int n = s.length();
+        int[] freq = new int[26];
+
+        for (char c : s.toCharArray()) {
+            freq[c - 'a']++;
+        }
+
+        int odd = 0;
+        char middle = 0;
+
+        for (int i = 0; i < 26; i++) {
+            if (freq[i] % 2 == 1) {
+                odd++;
+                middle = (char) ('a' + i);
+            }
+        }
+
+        if (odd > 1) return "";
+
+        int m = n / 2;
+        StringBuilder half = new StringBuilder();
+
+        for (int i = 0; i < 26; i++) {
+            for (int j = 0; j < freq[i] / 2; j++) {
+                half.append((char) ('a' + i));
+            }
+        }
+
+        String targetHalf = target.substring(0, m);
+        String equalHalf = buildEqualHalf(half.toString(), targetHalf);
+
+        if (equalHalf != null) {
+            String candidate = makePalindrome(equalHalf, middle);
+            if (candidate.compareTo(target) > 0) {
+                return candidate;
+            }
+        }
+
+        String greaterHalf = buildGreaterHalf(half.toString(), targetHalf);
+
+        if (greaterHalf == null) return "";
+
+        return makePalindrome(greaterHalf, middle);
+    }
+
+    private String buildEqualHalf(String half, String targetHalf) {
+        int[] count = new int[26];
+
+        for (char c : half.toCharArray()) {
+            count[c - 'a']++;
+        }
+
+        for (char c : targetHalf.toCharArray()) {
+            if (count[c - 'a'] == 0) return null;
+            count[c - 'a']--;
+        }
+
+        return targetHalf;
+    }
+
+    private String buildGreaterHalf(String half, String targetHalf) {
+        int[] count = new int[26];
+
+        for (char c : half.toCharArray()) {
+            count[c - 'a']++;
+        }
+
+        int n = targetHalf.length();
+
+        for (int i = n - 1; i >= 0; i--) {
+            int[] remaining = count.clone();
+
+            boolean possible = true;
+
+            for (int j = 0; j < i; j++) {
+                int x = targetHalf.charAt(j) - 'a';
+
+                if (remaining[x] == 0) {
+                    possible = false;
+                    break;
+                }
+
+                remaining[x]--;
+            }
+
+            if (!possible) continue;
+
+            int current = targetHalf.charAt(i) - 'a';
+
+            for (int c = current + 1; c < 26; c++) {
+                if (remaining[c] > 0) {
+                    StringBuilder result = new StringBuilder();
+                    result.append(targetHalf, 0, i);
+                    result.append((char) ('a' + c));
+
+                    remaining[c]--;
+
+                    for (int x = 0; x < 26; x++) {
+                        while (remaining[x] > 0) {
+                            result.append((char) ('a' + x));
+                            remaining[x]--;
+                        }
+                    }
+
+                    return result.toString();
+                }
+            }
+        }
+
+        return null;
+    }
+
+    private String makePalindrome(String half, char middle) {
+        StringBuilder result = new StringBuilder(half);
+
+        if (middle != 0) {
+            result.append(middle);
+        }
+
+        result.append(new StringBuilder(half).reverse());
+
+        return result.toString();
+    }
+}
