@@ -27,22 +27,7 @@ rather than simply memorizing solutions.
 
 ---
 
-## 📚 What This Repository Contains
 
-Each problem is maintained as part of my learning journey and may contain:
-
-- 🧩 Problem statement / problem reference
-- 💡 Approach and intuition
-- 🧠 Pattern or DSA concept used
-- 💻 Java implementation
-- ⏱️ Time complexity
-- 💾 Space complexity
-- 🔍 Important observations
-- ⚠️ Edge cases
-- 📌 Alternative approaches where useful
-- 📝 Notes for future revision
-
-The level of documentation may vary depending on the problem. Simpler problems may contain only the essential explanation, while difficult problems may have detailed reasoning and multiple approaches.
 
 ---
 
